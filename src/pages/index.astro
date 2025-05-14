@@ -9,7 +9,7 @@ const events = await response.json();
 <h1>Bienvenido</h1>
 
 <div> 
-    {events.map(event => (
+    {events.map((event: Event) => (
       <EventCard event={event} />
     ))}
 </div>
