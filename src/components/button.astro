@@ -1,0 +1,45 @@
+---
+const {url, target, bgcolor, txtcolor } = Astro.props;
+
+// Default values for the button
+const bgClass = bgcolor ? `bg-${bgcolor}` : 'bg-primary'; 
+const txtClass = txtcolor ? `txt-${txtcolor}` : 'txt-light';
+---
+
+<a 
+    href={url} 
+    target={target || '_self'} 
+    class=`${bgClass} ${txtClass}`> <slot></slot> </a>
+ 
+<style>
+
+    a {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--bg-button-color);
+        color: var(--bg-button-text-color);
+        display: inline-flex;
+        text-decoration: none;
+        text-align: center;
+        align-items: center;
+        font-weight: 600;
+        padding: 15px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        min-height: 15px;
+        min-width: 10px;
+    }
+    
+    a:hover {
+        animation:shadow-drop-br .4s cubic-bezier(.25,.46,.45,.94) both;
+    }
+
+    @keyframes shadow-drop-br{ 
+        0% {
+            box-shadow:0 0 0 0 transparent
+        }
+        100% {
+            box-shadow:12px 12px 20px -12px rgba(0,0,0,.35)
+        }
+    }
+
+</style>

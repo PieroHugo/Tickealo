@@ -1,0 +1,37 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro"
+import EventCard from '../components/eventCard.astro';
+
+const response = await fetch('http://3.142.84.196/api/Event'); // <-- cambia por tu URL real
+const events = await response.json();
+---
+<BaseLayout>
+<h1>Bienvenido</h1>
+
+<div> 
+    {events.map(event => (
+      <EventCard event={event} />
+    ))}
+</div>
+
+
+</BaseLayout>
+
+
+<style>
+
+h1{
+    color: var(--text-color);
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 20px;
+}
+
+div {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+</style>

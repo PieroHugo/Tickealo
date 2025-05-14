@@ -1,0 +1,29 @@
+---
+const { event } = Astro.props;
+---
+
+<article>
+  <h2>{event.name}</h2>
+  <p class="Fecha">Fecha: {event.date}</p>
+  <p>{event.description}</p>
+</article>
+
+<style>
+  article {
+    padding: 20px;
+    background-color: var(--primary-color);
+    color:var(--text-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+  }
+  h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: var(--secondary-color)
+  }
+  
+  article:hover {
+    transform: scale(1.02);
+  }
+</style>
